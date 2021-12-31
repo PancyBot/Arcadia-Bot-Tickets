@@ -1,14 +1,14 @@
 {
   "name": "arcadia-bot-tickets",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.9.8",
+  "description": "Bot de tickets de arcadia",
   "main": "index.js",
   "scripts": {
     "start": "node ."
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "ElTurbinas",
+  "license": "MIT",
   "dependencies": {
     "ascii-table": "^0.0.9",
     "discord-html-transcripts": "^1.1.1",
