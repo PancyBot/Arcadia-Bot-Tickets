@@ -11,12 +11,15 @@ module.exports = {
      */
 
     async execute(interaction) {
+		
         if(!interaction.isButton()) return;
         const { guild, member, customId } = interaction; 
 
         if(!['reporte', 'compra', 'otros'].includes(customId)) return;
 
-        const ID = Math.floor(Math.random * 90000) + 10000;
+        const ID = Math.floor(Math.random() * 90000) + 10000;
+		console.log(ID)
+		if(isNaN(ID)) return interaction.reply({ content: 'Ocurrio un error en la ID', ephemeral: true })
 
         await guild.channels.create(`${customId + "-" + ID}`, {
             type: 'GUILD_TEXT',
@@ -39,11 +42,11 @@ module.exports = {
                 ChannelID: channel.id,
                 Closed: false,
                 Locked: false,
-                type: customId,
+                Type: customId,
             });
 
         const Embed = new MessageEmbed()
-        .setAuthor(`${guild.id} | Ticket ${ID}`, guild.iconURL({ dynamic: true }))
+        .setAuthor(`${guild.name} | Ticket ${ID}`, guild.iconURL({ dynamic: true }))
         .setDescription('Por favor espera la pronta respuesta del staff por lo mientras proporciona una descripcion de tu problema')
         .setFooter(`Ticket ${ID} || ${customId}`)
         .setTimestamp()

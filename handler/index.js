@@ -24,28 +24,7 @@ module.exports = async (client) => {
         }
     });
 
-    // Events
-    const table = new Ascii("Eventos Cargados")
 
-    (await globPromise(`${process.cwd}/events/*/*.js`)).map(async file => {
-        const events = require(file);
-
-        if(!Events.includes(events.name) || !events.name) {
-            const L = file.split('/')
-            await table.addRow(`${events.name} || "No encontrado"`, `⛔ El nombre del evento es invalido o no se encontro: ${L[6] + `/` + L[7]}`)
-            return;
-        };
-
-        if(events.once) {
-            client.once(events.name, (...args) => events.execute(...args, client))
-        } else {
-            client.on(events.name, (...args) => events.execute(...args, client))
-        }
-
-        await table.addRow(events.name, "Cargado")
-    })
-
-    console.log(table.toString())
 
 
 
@@ -63,11 +42,13 @@ module.exports = async (client) => {
         if (["MESSAGE", "USER"].includes(file.type)) delete file.description;
         arrayOfSlashCommands.push(file);
     });
+	
     client.on("ready", async () => {
         // Register for a single guild
         await client.guilds.cache
-            .get("replace this with your guild id")
+            .get("873371564664574053")
             .commands.set(arrayOfSlashCommands);
+			console.log(arrayOfSlashCommands)
 
         // Register for all the guilds the bot is in
         // await client.application.commands.set(arrayOfSlashCommands);
@@ -75,5 +56,11 @@ module.exports = async (client) => {
 
 
 
-    mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
-};
+	mongoose.connect(`${process.env.URLDB}`,{
+    useUnifiedTopology : true,
+    useNewUrlParser : true,
+	}).then(console.log('conectado a la base de datos externa')).catch(e => {
+    console.log(`Error al conectar a la base de datos ${e}`)
+	})
+
+}

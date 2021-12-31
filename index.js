@@ -8,6 +8,7 @@ module.exports = client;
 client.commands = new Collection();
 client.slashCommands = new Collection();
 
-require("./handler")(client);
+require("./handler/index")(client);
+require("./handler/events")(client);
 
 client.login(process.env.TOKEN);

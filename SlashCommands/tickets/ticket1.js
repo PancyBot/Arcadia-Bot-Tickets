@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 const { CommandInteraction, MessageEmbed, MessageButton, MessageActionRow, Client} = require('discord.js')
 const { OPENTICKETID } = require('../../config.json')
 module.exports = {
-    name: '',
-    description: '', 
+    name: 'ticket',
+    description: 'Crea un ticket', 
     
     /**
      * @param {Client} client
@@ -13,7 +13,7 @@ module.exports = {
     run: async(client, interaction) => {
         const { guild } = interaction
 
-        const Embed = MessageEmbed()
+        const Embed = new MessageEmbed()
         .setAuthor(guild.name + "| Sistema de Tickets", guild.iconURL({ dynamic: true }))
         .setDescription("Abre un ticket para una duda, compra o reporte de bug")
         .setColor('#36393f')

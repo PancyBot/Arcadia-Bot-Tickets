@@ -43,7 +43,7 @@ module.exports = {
                     interaction.reply({ embeds: [Embed]})
                     break;
                 case 'unlock':
-                    if(docs.Locked === true) return interaction.reply({
+                    if(docs.Locked === false) return interaction.reply({
                         content: 'El ticket ya estaba desbloqueado',
                         ephemeral: true,
                     })
