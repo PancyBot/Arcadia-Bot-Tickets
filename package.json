@@ -13,7 +13,9 @@
     "ascii-table": "^0.0.9",
     "discord-html-transcripts": "^1.1.1",
     "discord.js": "^14.0.0-dev.1640779371.9cdc448",
+    "express": "^4.17.2",
     "glob": "^7.2.0",
-    "mongoose": "^6.1.4"
+    "mongoose": "^6.1.4",
+    "ping-monitor": "^0.6.2"
   }
 }

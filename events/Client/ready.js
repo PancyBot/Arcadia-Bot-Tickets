@@ -1,4 +1,5 @@
 const { Client } = require('discord.js')
+const Database = process.env.URLDB
 
 module.exports = {
     name: 'ready',
@@ -16,5 +17,12 @@ module.exports = {
         })
 
         console.log(`El bot ${client.user.tag} esta listo, Usuarios en cache: ${client.users.cache.size}`)
+        if(!Database) return; 
+        mongoose.connect(Database,{
+            useUnifiedTopology : true,
+            useNewUrlParser : true,
+            }).then(console.log('conectado a la base de datos externa')).catch(e => {
+            console.log(`Error al conectar a la base de datos ${e}`)
+            })
     } 
 }

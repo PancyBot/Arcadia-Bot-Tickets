@@ -56,11 +56,5 @@ module.exports = async (client) => {
 
 
 
-	mongoose.connect(`${process.env.URLDB}`,{
-    useUnifiedTopology : true,
-    useNewUrlParser : true,
-	}).then(console.log('conectado a la base de datos externa')).catch(e => {
-    console.log(`Error al conectar a la base de datos ${e}`)
-	})
 
 }
