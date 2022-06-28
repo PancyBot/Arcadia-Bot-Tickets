@@ -1,5 +1,6 @@
 const { Client } = require('discord.js')
 const Database = process.env.URLDB
+const mongoose = require('mongoose')
 
 module.exports = {
     name: 'ready',

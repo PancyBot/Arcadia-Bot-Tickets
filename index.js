@@ -1,5 +1,6 @@
 const keepAlive = require('./server');
 const Monitor = require('ping-monitor');
+require('dotenv').config()
  
 keepAlive();
 const monitor = new Monitor({

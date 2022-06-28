@@ -11,6 +11,7 @@ module.exports = {
      */
 
     run: async(client, interaction) => {
+	return interaction.followUp('Comando desactivado')
         const { guild } = interaction
 
         const Embed = new MessageEmbed()
